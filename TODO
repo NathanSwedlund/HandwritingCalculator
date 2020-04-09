@@ -1,0 +1,12 @@
+> Create Classifiers
+   * Neural Net
+   * Decision Tree
+   * K-Neighbors
+   * Gaussian Naive Bayes
+ > Parsing image for individual chracters
+ > Function to solve math equation given an input string
+ > Optimizations
+ > Optional
+  * Deploying
+  * Real-Time (on pen-up update screen)
+  * UI Improvements
