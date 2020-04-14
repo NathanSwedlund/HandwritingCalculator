@@ -16,7 +16,7 @@ function updateCanvasSize() {
   ctx.save()
   ctx.beginPath();
   ctx.fillStyle = "white";
-  ctx.rect(0, 0, 1000, 1000);
+  ctx.rect(0, 0, 4000, 4000);
   ctx.fill();
   ctx.restore()
 }
@@ -80,7 +80,7 @@ document.getElementById("clearButton").onclick = function () {
     ctx.save()
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.rect(0, 0, 1000, 1000);
+    ctx.rect(0, 0, 4000, 4000);
     ctx.fill();
     ctx.restore()
 };
