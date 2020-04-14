@@ -5,7 +5,7 @@ canvas {
   margin: auto;
   padding: 0px;
   border: 5px solid rgb(33, 82, 33);
-  background: rgb(255, 254, 254);
+  /* background: rgb(255, 254, 254); */
 }
 body {
   background: rgb(28, 62, 28);

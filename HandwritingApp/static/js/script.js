@@ -4,14 +4,25 @@ var lastY = 0;
 
 // Setting up canvas
 var canvas = document.querySelector("canvas");
-updateCanvasSize();
 var ctx = canvas.getContext("2d");
+updateCanvasSize();
 // ---
+
+
 
 // Generic Functions ---------------------------------
 function updateCanvasSize() {
+
+
+  console.log("test");
   canvas.width = window.innerWidth * 0.9;
   canvas.height = window.innerHeight * 0.2;
+  ctx.save()
+  ctx.beginPath();
+  ctx.fillStyle = "white";
+  ctx.rect(0, 0, 1000, 1000);
+  ctx.fill();
+  ctx.restore()
 }
 
 function mousePosition(canvas, evt) {
