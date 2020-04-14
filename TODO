@@ -1,9 +1,11 @@
 > Create Classifiers
-   * Neural Net
-   * Decision Tree
-   * K-Neighbors
-   * Gaussian Naive Bayes
- > Parsing image for individual chracters
+   * Neural Net 	   - Nathan
+   * Decision Tree	   - Nathan
+   * K-Neighbors	   - Nathan
+   * Gaussian Naive Bayes  - Nathan
+
+ > Implementing Classifier into web app
+ > Parsing image for individual characters
  > Function to solve math equation given an input string
  > Optimizations
  > Optional
