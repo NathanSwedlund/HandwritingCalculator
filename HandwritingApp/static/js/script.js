@@ -9,12 +9,8 @@ updateCanvasSize();
 // ---
 
 
-
 // Generic Functions ---------------------------------
 function updateCanvasSize() {
-
-
-  console.log("test");
   canvas.width = window.innerWidth * 0.9;
   canvas.height = window.innerHeight * 0.2;
   ctx.save()
@@ -81,7 +77,12 @@ canvas.addEventListener("mouseup", function (evt) {
 });
 
 document.getElementById("clearButton").onclick = function () {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save()
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.rect(0, 0, 1000, 1000);
+    ctx.fill();
+    ctx.restore()
 };
 
 // Sends the canvas as an image to python
