@@ -52,7 +52,7 @@ canvas.addEventListener("mousemove", (evt) => {
   ctx.save();
   ctx.beginPath();
   ctx.strokeStyle = "black";
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 5;
   ctx.moveTo(lastX, lastY);
   ctx.lineTo(x, y);
   ctx.stroke();
