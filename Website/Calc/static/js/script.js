@@ -7,7 +7,7 @@ var emptyCanvas = true;
 // Canvas
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
-updateCanvasSize();
+// updateCanvasSize();
 
 function updateCanvasSize() {
   canvas.width = window.innerWidth * 0.9;
@@ -27,7 +27,7 @@ function mousePosition(canvas, evt) {
 }
 
 // Event Listeners
-window.addEventListener("resize", updateCanvasSize);
+// window.addEventListener("resize", updateCanvasSize);
 canvas.addEventListener("mousedown", mouseDown);
 canvas.addEventListener("mousemove", mouseMove);
 canvas.addEventListener("mouseleave", mouseLeave);

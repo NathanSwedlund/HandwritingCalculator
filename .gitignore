@@ -1,6 +1,4 @@
 Website/Calc/__pycache__
 Website/Calc/python/__pycache__
 Website/Website/__pycache__
-Data/Raw/__MACOSX
-Data/Raw/mnist_train.csv
-Data/Raw/
+Data/raw_datasets/
