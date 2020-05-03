@@ -37,16 +37,12 @@ def index(request):
         WriteTxtFile.write(bytearray(body))
         WriteTxtFile.close()
 
+        # Segment and Classify
+        expression = segmenter.segment_and_classify(img_loc, img_num)
         img_num += 1
 
-        return HttpResponse(content="Placeholder")
+        if expression.isspace() or expression == "":
+            return HttpResponse(content="Please more input before hitting submit")
 
-        # Segment and Classify
-#         expression = segmenter.segment_and_classify(img_loc, img_num)
-#         img_num += 1
-
-#         if expression.isspace() or expression == "":
-#             return HttpResponse(content="Please more input before hitting submit")
-
-#         print("Expression not empty |"+expression+"|")
-#         return HttpResponse(content=expression)
+        print("Expression not empty |"+expression+"|")
+        return HttpResponse(content=expression)

@@ -116,7 +116,7 @@ def reshape1(img, cnts):
                 char, padding, padding, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
 
         # Resize
-        char_size = 28 - IMAGE_PADDING * 2
+        char_size = 45 - IMAGE_PADDING * 2
         char = cv2.resize(char, (char_size, char_size))
 
         # add padding
@@ -185,10 +185,12 @@ def segment_and_classify(img_loc, image_num):
     os.mkdir(f"Calc/img/seg_img_{image_num}")
     for i, char in enumerate(chars):
         cv2.imwrite(f"Calc/img/seg_img_{image_num}/{i}.png", char)
+    
+    return "Placeholder"
 
     # Classify
-    expression = ""
-    for char in chars:
-        expression += clf.predict([char.ravel()])[0]
+    # expression = ""
+    # for char in chars:
+    #     expression += clf.predict([char.ravel()])[0]
 
-    return expression
+    # return expression
