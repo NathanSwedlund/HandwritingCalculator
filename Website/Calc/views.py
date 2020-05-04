@@ -32,17 +32,19 @@ def index(request):
 
         # Write to file
         global img_num
-        img_loc = f"Calc/img/test_img_0_{img_num}.png"
+        img_loc = f"Calc/img/test_img_1_{img_num}.png"
         WriteTxtFile = open(img_loc, "wb")
         WriteTxtFile.write(bytearray(body))
         WriteTxtFile.close()
 
         # Segment and Classify
-        expression = segmenter.segment_and_classify(img_loc, img_num)
-        img_num += 1
+        n = segmenter.segment_and_classify(img_loc, img_num)
+        img_num += n
 
-        if expression.isspace() or expression == "":
-            return HttpResponse(content="Please more input before hitting submit")
+        return HttpResponse(content=str(n)) 
 
-        print("Expression not empty |"+expression+"|")
-        return HttpResponse(content=expression)
+        # if expression.isspace() or expression == "":
+        #     return HttpResponse(content="Please more input before hitting submit")
+
+        # print("Expression not empty |"+expression+"|")
+        # return HttpResponse(content=expression)

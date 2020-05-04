@@ -182,11 +182,11 @@ def segment_and_classify(img_loc, image_num):
     chars = reshape1(img, cnts)
 
     # Write images to folder
-    os.mkdir(f"Calc/img/seg_img_{image_num}")
+    # os.mkdir(f"Calc/img/seg_img_{image_num}")
     for i, char in enumerate(chars):
-        cv2.imwrite(f"Calc/img/seg_img_{image_num}/{i}.png", char)
+        cv2.imwrite(f"Calc/img/0/{i+image_num}.png", char)
     
-    return "Placeholder"
+    return len(chars)
 
     # Classify
     # expression = ""
