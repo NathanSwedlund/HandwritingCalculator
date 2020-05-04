@@ -184,7 +184,7 @@ def segment_and_classify(img_loc, image_num):
     # Write images to folder
     # os.mkdir(f"Calc/img/seg_img_{image_num}")
     for i, char in enumerate(chars):
-        cv2.imwrite(f"Calc/img/0/{i+image_num}.png", char)
+        cv2.imwrite(f"Calc/img/,/{i+image_num}.png", char)
     
     return len(chars)
 
