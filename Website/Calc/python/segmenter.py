@@ -84,7 +84,7 @@ def shape(img):
             img, padding, padding, 0, 0, cv2.BORDER_CONSTANT, value=(0, 0, 0))
 
     # Resize
-    img_size = 28 - IMAGE_PADDING * 2
+    img_size = 45 - IMAGE_PADDING * 2
     img = cv2.resize(img, (img_size, img_size))
 
     # add padding
@@ -146,10 +146,10 @@ def reshape1(img, cnts):
 #             rows = int(round(rows*factor))
 #             char_img = cv2.resize(char_img, (cols, rows))
 
-#         colsPadding = (int(math.ceil((28-cols)/2.0)),
-#                        int(math.floor((28-cols)/2.0)))
-#         rowsPadding = (int(math.ceil((28-rows)/2.0)),
-#                        int(math.floor((28-rows)/2.0)))
+#         colsPadding = (int(math.ceil((45-cols)/2.0)),
+#                        int(math.floor((45-cols)/2.0)))
+#         rowsPadding = (int(math.ceil((45-rows)/2.0)),
+#                        int(math.floor((45-rows)/2.0)))
 #         char_img = np.lib.pad(char_img, (rowsPadding, colsPadding), 'constant')
 #         resized_chars.append(char_img)
 #         ax.imshow(char_img, cmap="Greys_r")
@@ -160,7 +160,7 @@ def reshape1(img, cnts):
 def segment_and_classify(img_loc, image_num):
     # Classifier
     clf = None
-    with open("Calc/python/clf.pk", 'rb') as fin:
+    with open("Calc/python/KN.pk", 'rb') as fin:
         clf = pickle.load(fin)
 
     img = cv2.imread(img_loc)
@@ -182,15 +182,26 @@ def segment_and_classify(img_loc, image_num):
     chars = reshape1(img, cnts)
 
     # Write images to folder
-    # os.mkdir(f"Calc/img/seg_img_{image_num}")
+    os.mkdir(f"Calc/img/seg_img_{image_num}")
     for i, char in enumerate(chars):
-        cv2.imwrite(f"Calc/img/,/{i+image_num}.png", char)
-    
-    return len(chars)
+        cv2.imwrite(f"Calc/img/seg_img_{image_num}/{i}.png", char)
 
     # Classify
-    # expression = ""
-    # for char in chars:
-    #     expression += clf.predict([char.ravel()])[0]
+    
+    expression = ""
+    for char in chars:
+        print(char.shape)
 
-    # return expression
+        pred = clf.predict([char.ravel()])[0]
+        if(pred == ","):
+            pred = '/'
+
+        expression += pred
+
+    try:
+        answer = str(eval(expression))
+        # print("ANSWER ::: ", answer)
+    except:
+        answer = "could not parse"
+
+    return expression+" = "+answer

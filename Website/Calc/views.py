@@ -39,7 +39,7 @@ def index(request):
 
         # Segment and Classify
         n = segmenter.segment_and_classify(img_loc, img_num)
-        img_num += n
+        img_num += 1
 
         return HttpResponse(content=str(n)) 
 
