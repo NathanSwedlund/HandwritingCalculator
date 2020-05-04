@@ -212,7 +212,7 @@ def segment_and_classify(img_loc, image_num):
         expression += pred
 
     try:
-        answer = str(eval(expression))
+        answer = str(eval(expression.replace(")(", ")*(")))
     except:
         answer = "Could not parse"
 
