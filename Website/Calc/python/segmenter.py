@@ -18,6 +18,9 @@ import pickle
 # Classifying
 from sklearn.datasets import load_digits
 from sklearn import neighbors
+from sklearn import neural_network
+from sklearn import preprocessing
+
 
 
 IMAGE_PADDING = 4
@@ -160,7 +163,7 @@ def reshape1(img, cnts):
 def segment_and_classify(img_loc, image_num):
     # Classifier
     clf = None
-    with open("Calc/python/KN.pk", 'rb') as fin:
+    with open("Calc/python/clf.pk", 'rb') as fin:
         clf = pickle.load(fin)
 
     img = cv2.imread(img_loc)
@@ -186,13 +189,23 @@ def segment_and_classify(img_loc, image_num):
     for i, char in enumerate(chars):
         cv2.imwrite(f"Calc/img/seg_img_{image_num}/{i}.png", char)
 
+    sc = preprocessing.StandardScaler()
+    # sc_train_X = sc.fit_transform(train_X)
     # Classify
-    
     expression = ""
     for char in chars:
         print(char.shape)
 
-        pred = clf.predict([char.ravel()])[0]
+        sc_char = sc.fit_transform(char)
+
+        # cl = [char.ravel()]
+        # sc_cl = sc.fit_transform(cl)
+        # print("SC ", sc_cl)
+        # pred = clf.predict(sc_cl)[0]
+
+        pred = clf.predict([sc_char.ravel()])[0]
+        # pred = clf.predict([char.ravel()])[0]
+
         if(pred == ","):
             pred = '/'
 
@@ -200,8 +213,7 @@ def segment_and_classify(img_loc, image_num):
 
     try:
         answer = str(eval(expression))
-        # print("ANSWER ::: ", answer)
     except:
-        answer = "could not parse"
+        answer = "Could not parse"
 
     return expression+" = "+answer
