@@ -3,6 +3,10 @@ Final Project for Pattern Recognition
 Authors: Nathan Swedlund and Brighton Mica
 Date: 05/04/20
 
+Branches:
+	We have many branches that have differnt things. Most of the work
+	in these branches failed ot produce good results. Master is the culmination.
+
 Project Structure:
 	- Data/ - contains CSV files for Math and MNIST Dataset
 	- Jupyter/ - contains all Jupyter related work
