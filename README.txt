@@ -4,8 +4,8 @@ Authors: Nathan Swedlund and Brighton Mica
 Date: 05/04/20
 
 Project Structure:
-	- Data/ contains CSV files for Math and MNIST Dataset
-	- Jupyter/ contains all Jupyter related work
+	- Data/ - contains CSV files for Math and MNIST Dataset
+	- Jupyter/ - contains all Jupyter related work
 	- Jupyter/Classifier/
 		.../Classifiers.ipynb - contains classifier visualization
 		.../FutherTesting.ipynb - further classifier validation
