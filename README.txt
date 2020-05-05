@@ -1,5 +1,10 @@
 Final Project for Pattern Recognition
 
+Description:
+	This project is a handwriting caclulator. It takes hadnwritten math expressions from the HTML5 
+	canvas and solves them. See the presentations for more details.
+
+
 Authors: Nathan Swedlund and Brighton Mica
 Date: 05/04/20
 
