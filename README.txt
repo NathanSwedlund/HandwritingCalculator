@@ -34,4 +34,5 @@ Running the Website:
 	- go to the URL mentioned in the terminal (should be something along 
 	  the lines of http://127.0.0.1:8000/). Add Calc/ to the url. 
 	- You should now be on the website
+	- If there is no img/ dir in the Calc/ folder in the website, add an img folder and restart the website
 
