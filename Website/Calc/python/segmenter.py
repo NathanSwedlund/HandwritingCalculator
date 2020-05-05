@@ -163,7 +163,7 @@ def reshape1(img, cnts):
 def segment_and_classify(img_loc, image_num):
     # Classifier
     clf = None
-    with open("Calc/python/clf.pk", 'rb') as fin:
+    with open("Calc/python/KN.pk", 'rb') as fin:
         clf = pickle.load(fin)
 
     img = cv2.imread(img_loc)
@@ -196,15 +196,15 @@ def segment_and_classify(img_loc, image_num):
     for char in chars:
         print(char.shape)
 
-        sc_char = sc.fit_transform(char)
+        # sc_char = sc.fit_transform(char)
 
         # cl = [char.ravel()]
         # sc_cl = sc.fit_transform(cl)
         # print("SC ", sc_cl)
         # pred = clf.predict(sc_cl)[0]
 
-        pred = clf.predict([sc_char.ravel()])[0]
-        # pred = clf.predict([char.ravel()])[0]
+        # pred = clf.predict([sc_char.ravel()])[0]
+        pred = clf.predict([char.ravel()])[0]
 
         if(pred == ","):
             pred = '/'
